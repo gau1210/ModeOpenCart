@@ -1,0 +1,22 @@
+-->>> Caminho para chegar no arquivo dentro da pasta principal do OpenCard: catalog\view\template\account\address_form.twig
+
+//Esse bloco deve ser colocado na field {{input-postcode}} apenas adicionamos o post-mask na class e colocamos o span do cep antes do input.
+  
+<span>Não sabe seu Cep? </span><a class="linkTop" href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank"> Clique aqui! </a>
+<input type="text" name="postcode" value="{{ postcode }}" placeholder="{{ entry_postcode }}" id="input-postcode" class="form-control post-mask"/>
+
+//Esse script deve ser colocado no final da pagina logo antes ao campo {{ footer }}.
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('.post-mask').on('input', function() {
+      let value = $(this).val().replace(/\D/g, ''); // Remove tudo que não é número
+      if (value.length) {
+        $(this).mask('00000-000'); //mascara para data
+      } 
+    });
+});
+</script>
+{% endblock %}
