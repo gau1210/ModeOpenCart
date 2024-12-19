@@ -1,3 +1,4 @@
+<?php
 // Caminho para chegar no arquivo dentro da pasta principal do OpenCard: catalog/controller/account/register.php
 
 Subistitua o codigo abaixo no local que tem a // Custom field validation antes do if.
@@ -34,3 +35,4 @@ foreach ($custom_fields as $custom_field) {
 		}
 	}
 }
+?>
